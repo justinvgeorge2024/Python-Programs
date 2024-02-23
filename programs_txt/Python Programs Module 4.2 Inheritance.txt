@@ -1,0 +1,188 @@
+#Program Python Module 4 Inheritance
+# Program 1Python code to demonstrate inheritance and how parent constructors
+# are called.
+
+# parent class
+class Person( object ):
+
+		# __init__ is known as the constructor		
+		def __init__(self, name, idnumber):
+				self.name = name
+				self.idnumber = idnumber
+		def display(self):
+				print(self.name)
+				print(self.idnumber)
+
+# child class
+class Employee( Person ):		
+		def __init__(self, name, idnumber, salary, post):
+				self.salary = salary
+				self.post = post
+
+				# invoking the __init__ of the parent class
+				Person.__init__(self, name, idnumber)
+
+				
+# creation of an object variable or an instance
+a = Employee('Rahul', 886012, 200000, "Intern")
+
+# calling a function of the class Person using its instance
+a.display()
+
+
+
+
+# Program 2 example to show the working of multiple
+# inheritance
+class Base1(object):
+	def __init__(self):
+		self.str1 = " Computer  "
+		print("Base1")
+
+class Base2(object):
+	def __init__(self):
+		self.str2 = "  Data "	
+		print("Base2")
+
+class Derived(Base1, Base2):
+	def __init__(self):
+		
+		# Calling constructors of Base1
+		# and Base2 classes
+		Base1.__init__(self)
+		Base2.__init__(self)
+		print("Derived")
+		
+	def printStrs(self):
+		print(self.str1, self.str2)
+		
+
+ob = Derived()
+ob.printStrs()
+
+# Program 3 Python program to demonstrate private members
+# of the parent class
+class C(object):
+	def __init__(self):
+			self.c = 21
+
+			# d is private instance variable
+			self.__d = 42
+class D(C):
+	def __init__(self):
+			self.e = 84
+			C.__init__(self)
+object1 = D()
+
+# produces an error as d is private instance variable
+print(object1.d)					
+
+# Program 4 Python program to demonstrate
+# single inheritance
+
+
+# Base class
+class Parent:
+	def func1(self):
+		print("This function is in parent class.")
+
+# Derived class
+class Child(Parent):
+	def func2(self):
+		print("This function is in child class.")
+
+# Driver's code
+object = Child()
+object.func1()
+object.func2()
+
+# Program 5 Python program to demonstrate
+# multiple inheritance
+
+
+# Base class1
+class Mother:
+	mothername = ""
+	def mother(self):
+		print(self.mothername)
+
+# Base class2
+class Father:
+	fathername = ""
+	def father(self):
+		print(self.fathername)
+
+# Derived class
+class Son(Mother, Father):
+	def parents(self):
+		print("Father :", self.fathername)
+		print("Mother :", self.mothername)
+
+# Driver's code
+s1 = Son()
+s1.fathername = "RAM"
+s1.mothername = "SITA"
+s1.parents()
+
+
+# Program 6 Python program to demonstrate
+# multilevel inheritance
+
+# Base class
+class Grandfather:
+
+	def __init__(self, grandfathername):
+		self.grandfathername = grandfathername
+
+# Intermediate class
+class Father(Grandfather):
+	def __init__(self, fathername, grandfathername):
+		self.fathername = fathername
+
+		# invoking constructor of Grandfather class
+		Grandfather.__init__(self, grandfathername)
+
+# Derived class
+class Son(Father):
+	def __init__(self,sonname, fathername, grandfathername):
+		self.sonname = sonname
+
+		# invoking constructor of Father class
+		Father.__init__(self, fathername, grandfathername)
+
+	def print_name(self):
+		print('Grandfather name :', self.grandfathername)
+		print("Father name :", self.fathername)
+		print("Son name :", self.sonname)
+
+# Driver code
+s1 = Son('Prince', 'Rampal', 'Lal mani')
+print(s1.grandfathername)
+s1.print_name()
+
+# Program 7 Python program to demonstrate
+# Hierarchical inheritance
+
+
+# Base class
+class Parent:
+	def func1(self):
+		print("This function is in parent class.")
+
+# Derived class1
+class Child1(Parent):
+	def func2(self):
+		print("This function is in child 1.")
+
+# Derivied class2
+class Child2(Parent):
+	def func3(self):
+		print("This function is in child 2.")
+
+# Driver's code
+object1 = Child1()
+object2 = Child2()
+object1.func1()
+object1.func2()
+object2.func1()
+object2.func3()

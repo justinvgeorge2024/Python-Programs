@@ -1,0 +1,176 @@
+# Python program 1 to demonstrate
+# indexing in numpy array
+import numpy as np
+ 
+# Initial Array
+arr = np.array([[-1, 2, 0, 4],
+                     [4, -0.5, 6, 0],
+                     [2.6, 0, 7, 8],
+                     [3, -7, 4, 2.0]])
+print("Initial Array: ")
+print(arr)
+ 
+# Printing a range of Array
+# with the use of slicing method
+sliced_arr = arr[:2, ::2]
+print ("Array with first 2 rows and"
+    " alternate columns(0 and 2):\n", sliced_arr)
+ 
+
+Output:
+
+Initial Array: 
+[[-1.   2.   0.   4. ]
+ [ 4.  -0.5  6.   0. ]
+ [ 2.6  0.   7.   8. ]
+ [ 3.  -7.   4.   2. ]]
+Array with first 2 rows and alternate columns(0 and 2):
+ [[-1.  0.]
+ [ 4.  6.]]
+
+
+
+# Python program 2 to demonstrate
+# basic operations on single array
+import numpy as np
+ 
+# Defining Array 1
+a = np.array([[1, 2],
+                    [3, 4]])
+ 
+# Defining Array 2
+b = np.array([[4, 3],
+                    [2, 1]])
+               
+# Adding 1 to every element
+print ("Adding 1 to every element:", a + 1)
+ 
+# Subtracting 2 from each element
+print ("\nSubtracting 2 from each element:", b - 2)
+ 
+# sum of array elements
+# Performing Unary operations
+print ("\nSum of all array "
+       "elements: ", a.sum())
+ 
+# Adding two arrays
+# Performing Binary operations
+print ("\nArray sum:\n", a + b)
+
+
+Output:
+
+Adding 1 to every element:
+ [[2 3]
+ [4 5]]
+
+Subtracting 2 from each element:
+ [[ 2  1]
+ [ 0 -1]]
+
+Sum of all array elements:  10
+
+Array sum:
+ [[5 5]
+ [5 5]]
+
+# Python Program 3 to create
+# a data type object
+import numpy as np
+ 
+# Integer datatype
+# guessed by Numpy
+x = np.array([1, 2])  
+print("Integer Datatype: ")
+print(x.dtype)         
+ 
+# Float datatype
+# guessed by Numpy
+x = np.array([1.0, 2.0]) 
+print("\nFloat Datatype: ")
+print(x.dtype)  
+ 
+# Forced Datatype
+x = np.array([1, 2], dtype = np.int64)   
+print("\nForcing a Datatype: ")
+print(x.dtype)
+
+
+Output:
+
+Integer Datatype: 
+int64
+
+Float Datatype: 
+float64
+
+Forcing a Datatype: 
+int64
+
+# Python program 4 to demonstrate a need of NumPy
+ 
+list1 = [1, 2, 3, 4 ,5, 6]
+list2 = [10, 9, 8, 7, 6, 5]
+ 
+# Multiplying both lists directly would give an error.
+print(list1*list2)
+
+Output :
+
+TypeError: can't multiply sequence by non-int of type 'list'
+
+# Python program 5 to demonstrate the use of NumPy arrays
+import numpy as np
+ 
+list1 = [1, 2, 3, 4, 5, 6]
+list2 = [10, 9, 8, 7, 6, 5]
+ 
+# Convert list1 into a NumPy array
+a1 = np.array(list1)
+ 
+# Convert list2 into a NumPy array
+a2 = np.array(list2)
+ 
+print(a1*a2)
+
+Output :
+
+array([10, 18, 24, 28, 30, 30])
+
+# Python program 5 to demonstrate 
+# the use of index arrays.
+import numpy as np
+ 
+# Create a sequence of integers from
+# 10 to 1 with a step of -2
+a = np.arange(10, 1, -2) 
+print("\n A sequential array with a negative step: \n",a)
+ 
+# Indexes are specified inside the np.array method.
+newarr = a[np.array([3, 1, 2 ])]
+print("\n Elements at these indices are:\n",newarr)
+
+Output :
+
+A sequential array with a negative step:
+[10  8  6  4  2]
+
+Elements at these indices are:
+[4 8 6]
+
+# Python program 5
+
+import numpy as np
+ 
+# NumPy array with elements from 1 to 9
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+ 
+# Index values can be negative.
+arr = x[np.array([1, 3, -3])]
+print("\n Elements are : \n",arr)
+
+Output :
+
+Elements are:
+[2 4 7]
+
